@@ -1,0 +1,128 @@
+﻿@model UniGuide.Models.University
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>University</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UniversityEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UniversityEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UniversityArb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UniversityArb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AboutUniversityEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AboutUniversityEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AboutUniversityArb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AboutUniversityArb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.logo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.logo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UniversityURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UniversityURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GlobalRank)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GlobalRank)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContinetRank)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContinetRank)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegionalRank)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegionalRank)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocalRank)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocalRank)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City1.CityEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City1.CityEng)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

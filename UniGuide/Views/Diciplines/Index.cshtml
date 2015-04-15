@@ -1,0 +1,45 @@
+﻿@model IEnumerable<UniGuide.Models.Dicipline>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DiciplineEng)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiciplineArb)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.CategoryEng)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiciplineEng)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiciplineArb)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.CategoryEng)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DiciID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DiciID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DiciID })
+        </td>
+    </tr>
+}
+
+</table>

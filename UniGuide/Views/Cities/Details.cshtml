@@ -1,0 +1,42 @@
+﻿@model UniGuide.Models.City
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>City</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CityEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CityArb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityArb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country.CountryEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country.CountryEng)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CityID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

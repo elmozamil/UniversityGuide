@@ -1,0 +1,31 @@
+﻿@model IEnumerable<UniGuide.Models.UniversityComment>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<fieldset>
+    <legend>Comments</legend>
+    @foreach (var item in Model)
+    {
+        <div class="lstContainer">
+            @*<span class="imgContainer">
+                    <img src="~/Images/loading.gif" />
+                </span>*@
+            <span class="usrid">@item.userID</span>
+            <spasn class="CommentCreated">@item.Created</spasn>
+            <div class="comment">
+                <p>@item.Comment</p>
+            </div>
+            <hr />
+        </div>
+    }
+</fieldset>
+<h1>
+    @ViewBag.moreComment
+</h1>
+<a href=@ViewData["moreComment"] id="moreComment" class="moreComment">More</a>
+
+@if (ViewData["moreComment"] != null)
+{
+    <a href=@ViewData["moreComment"] id="moreComment" class="moreComment">More</a>
+}

@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="@UniGuide.Helpers.CultureHelper.GetCurrentNeutralCulture()" dir="@(UniGuide.Helpers.CultureHelper.IsRighToLeft() ? "rtl" : "ltr")">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uni Guide | @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~//bundles/jquery")
+    @Scripts.Render("~/Custom")
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,300italic,400italic,600,700,600italic,200,200italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink(@Resources.Resources.ApplicationTitle, "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink(@Resources.Resources.home, "Index", "Home")</li>
+                    <li>@Html.ActionLink(@Resources.Resources.about, "About", "Home")</li>
+                    <li>@Html.ActionLink(@Resources.Resources.contact, "Contact", "Home")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Universities <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink(" " + Resources.Resources.searchmyFuture, "SearchFuture", "SearchFuture", null, new { @class = "glyphicon glyphicon-th-list" })</li>
+                            <li>@Html.ActionLink(" " + Resources.Resources.lstUni, "List", "Universities", null, new { @class = "glyphicon glyphicon-th-list" })</li>
+                            <li>@Html.ActionLink(" " + Resources.Resources.suggestUniversity, "Create", "Universities", null, new { @class = "glyphicon glyphicon-plus" })</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink(" " + Resources.Resources.top10, "Index", "Universities", null, new { @class = "glyphicon glyphicon-hand-up" })</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink(" " + Resources.Resources.lstPrograms, "Index", "Programs", null, new { @class = "glyphicon glyphicon-hand-up" })</li>
+                        </ul>
+                    </li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+              
+            </div>
+        </div>
+        <div id="pageHitCount">1 Active User</div>
+    </div>
+    @*<ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Library</a></li>
+            <li class="active">Data</li>
+        </ol>*@
+    @*<div class="navbar navbar-left">
+            <ul style="background-color: black; width: 200px; height:100% !important;">
+                <li>
+                    Menu1
+                </li>
+                <li>
+                    Menu1
+                </li>
+                <li>
+                    Menu1
+                </li>
+                <li>
+                    Menu1
+                </li>
+            </ul>
+        </div>*@
+
+    @*<div class="navbar-right">
+            <video src="~/Images/a.MP4"
+                   poster="~/Images/NA.png"
+                   autoplay="autoplay"
+                   muted="muted"
+                   controls="controls"
+                   loop="loop"
+                   class="AdvImg"></video>
+            <img class="AdvImg" src="~/Images/b.jpg" />
+            <video src="~/Images/a.MP4"
+                   poster="~/Images/NA.png"
+                   autoplay="autoplay"
+                   muted="muted"
+                   controls="controls"
+                   loop="loop"
+                   class="AdvImg"></video>
+        </div>*@
+    <div class="container body-content">
+        
+        @RenderBody()
+        <hr />
+    </div>
+    <footer>
+        <p style="margin-bottom: 5px; display:block; position:static; text-align:center;">&copy; @DateTime.Now.Year - UniGuide</p>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

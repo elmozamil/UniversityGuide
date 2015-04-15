@@ -1,0 +1,113 @@
+﻿@model UniGuide.Models.University
+<h2>
+    <a href=@Model.UniversityURL>
+        @Html.DisplayFor(model => model.UniversityEng)
+    </a>
+    <code>
+        @{
+            string Nofaculties = Model.Faculties.Count().ToString();
+        }
+        @Html.ActionLink("Faculties (" + Nofaculties + ")", "List")
+    </code>
+</h2>
+
+    <div class="row">
+        @*<div class="col-xs-3 col-centered"></div>*@
+        <div class="col-md4">
+            <div class="universityImg">
+                @if (Model.logo != null)
+                {
+                    <div>
+                        <img src="data:image/jpg;base64,@(Convert.ToBase64String(Model.logo))" alt="@Model.UniversityEng" align="TOP" />
+                        @*@Html.DisplayFor(model => model.logo)>*@
+                        <p>
+                            @Html.DisplayFor(model => model.AboutUniversityEng)
+                        </p>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-md4">
+            <div id="googleMap">
+
+            </div>
+            <br />
+            <span>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </span>
+            <span>
+                @Html.DisplayFor(model => model.CreatedDate)
+            </span>
+            <hr />
+            <span>
+                @Html.DisplayNameFor(model => model.GlobalRank)
+            </span>
+            <span>
+                @Html.DisplayFor(model => model.GlobalRank)
+            </span>
+
+            <span>
+                @Html.DisplayNameFor(model => model.ContinetRank)
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.ContinetRank)
+            </span>
+            <br />
+            <span>
+                @Html.DisplayNameFor(model => model.RegionalRank)
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.RegionalRank)
+            </span>
+
+            <span>
+                @Html.DisplayNameFor(model => model.LocalRank)
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.LocalRank)
+            </span>
+            <hr />
+            <span>
+                @Html.DisplayNameFor(model => model.City1.CityEng)
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.City1.CityEng)
+            </span>
+            <span>
+
+            </span>
+            <span>
+                @*     @Html.ActionLink("Programs (" + (string)ViewBag.NoProg.ToString() +")", "List")*@
+            </span>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.UniveristyID }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+
+            <ul class="pagination">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+            <span class="glyphicon glyphicon-shopping-cart">Buy it</span>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md2"></div>
+        <div class="col-md9">
+            <div class="commentLst">
+                @Html.Partial("_UniversityComments", Model.UniversityComments)
+            </div>
+        </div>
+        <div class="col-md1"></div>
+    </div>

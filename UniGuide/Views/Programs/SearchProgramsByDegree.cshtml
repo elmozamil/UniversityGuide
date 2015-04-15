@@ -1,0 +1,78 @@
+﻿@model IEnumerable<UniGuide.Models.Program>
+
+@{
+    ViewBag.Title = "SearchProgramsByDegree";
+}
+
+<h2>SearchProgramsByDegree</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProgramEng)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProgramArb)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AboutEng)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AboutArb)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Period)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Semesters)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProgramURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Faculty.FacultyEng)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Degree.DegreeEng)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProgramEng)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProgramArb)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AboutEng)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AboutArb)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Period)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Semesters)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProgramURL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Faculty.FacultyEng)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Degree.DegreeEng)
+        </td>
+        <td>
+        </td>
+    </tr>
+}
+
+</table>

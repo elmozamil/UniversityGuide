@@ -1,0 +1,114 @@
+﻿@model UniGuide.Models.Faculty
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Faculty</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FacultyEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacultyEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacultyArb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacultyArb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AboutEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AboutEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AboutArb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AboutArb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.logo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.logo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacultyURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacultyURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdmissionType1.AdmisionEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdmissionType1.AdmisionEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City1.CityEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City1.CityEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hybird1.HybirdEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hybird1.HybirdEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.University.UniversityEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.University.UniversityEng)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FacultyID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

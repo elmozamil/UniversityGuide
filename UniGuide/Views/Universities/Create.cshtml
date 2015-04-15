@@ -1,0 +1,190 @@
+﻿@model UniGuide.Models.University
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<br/>
+<div class="row">
+<div class="col-lg-7">
+    <div class="well bs-component">
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
+        {
+            <fieldset>
+                <legend>New University</legend>
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label for="UniversityEngName" class="col-lg-3 col-lg-offset-1 control-label">English Name</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.UniversityEng, new { @class = "form-control", placeholder="University English Name", id="UniversityEngName" } )
+                        @Html.ValidationMessageFor(model => model.UniversityEng, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="UniversityArbName" class="col-lg-3 col-lg-offset-1 control-label">Arabic Name</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.UniversityArb, new { @class = "form-control", placeholder = "University Arabic Name", id = "UniversityArbName" })
+                        @Html.ValidationMessageFor(model => model.UniversityArb, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="UniversityCity" class="col-lg-3 col-lg-offset-1 control-label">City</label>
+                    <div class="col-lg-8">
+                        @Html.DropDownList("City", null, new { @class = "form-control", id="UniversityCity"})
+                        @Html.ValidationMessageFor(model => model.City, "",  new { @class = "text-danger"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="UniversityLogo" class="col-lg-3 col-lg-offset-1 control-label">Logo</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.logo, new { @class = "form-control", id="UniversityLogo", type="file"})
+                        @Html.ValidationMessageFor(model => model.logo, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 col-lg-offset-1 control-label" for="UniversityCreated">Created Date</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.CreatedDate, new { @class = "form-control", id = "UniversityCreated", type="Date" })
+                        @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Universityurl" class="col-lg-3 col-lg-offset-1 control-label">URL</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.UniversityURL, new { @class="form-control", id = "Universityurl", type="url"})
+                        @Html.ValidationMessageFor(model => model.UniversityURL, "", new{@class ="text-danger"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="UniGlobalRank" class="col-lg-3 col-lg-offset-1 control-label">Global Rank</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.GlobalRank, new { @class = "form-control", id = "UniGlobalRank", type = "number" })
+                        @Html.ValidationMessageFor(model => model.GlobalRank, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="UniContinetRank" class="col-lg-3 col-lg-offset-1 control-label">Continet Rank</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.ContinetRank, new { @class = "form-control", id = "UniContinetRank", type = "number" })
+                        @Html.ValidationMessageFor(model => model.ContinetRank, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="UniRegionalRank" class="col-lg-3 col-lg-offset-1 control-label">Regional Rank</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.RegionalRank, new { @class = "form-control", id = "UniRegionalRank", type = "number" })
+                        @Html.ValidationMessageFor(model => model.RegionalRank, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="UniLocalRank" class="col-lg-3 col-lg-offset-1 control-label">Local Rank</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.LocalRank, new { @class = "form-control", id = "UniLocalRank", type = "number" })
+                        @Html.ValidationMessageFor(model => model.LocalRank, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="UniAboutEng" class="col-lg-3 col-lg-offset-1 control-label">English About</label>
+                    <div class="col-lg-8">
+                        @Html.TextAreaFor(model => model.AboutUniversityEng, new { @class = "form-control", rows = "3", id = "UniAboutEng" })
+                        @Html.ValidationMessageFor(model => model.AboutUniversityEng, "", new { @class ="text-danger"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="UniAboutArb" class="col-lg-3 col-lg-offset-1 control-label">Arabic About</label>
+                    <div class="col-lg-8">
+                        @Html.TextAreaFor(model => model.AboutUniversityArb, new { @class = "form-control", rows = "3", id = "UniAboutArb" })
+                        @Html.ValidationMessageFor(model => model.AboutUniversityArb, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                        @*<button type="reset" class="btn btn-default">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>*@
+                    </div>
+                </div>
+            </fieldset>
+        }
+    </div>
+</div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@*
+                    @Html.LabelFor(model => model.GlobalRank, htmlAttributes: new { @class = "control-label col-md-2" })
+                </div>
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.GlobalRank, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.GlobalRank, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    @Html.LabelFor(model => model.ContinetRank, htmlAttributes: new { @class = "control-label col-md-2" })
+                </div>
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.ContinetRank, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ContinetRank, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    @Html.LabelFor(model => model.RegionalRank, htmlAttributes: new { @class = "control-label col-md-2" })
+                </div>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(model => model.RegionalRank, new { @class = "form-control", type = "number" })
+                    @Html.ValidationMessageFor(model => model.RegionalRank, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    @Html.LabelFor(model => model.LocalRank, htmlAttributes: new { @class = "control-label col-md-2" })
+                </div>
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.LocalRank, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LocalRank, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(model => model.AboutUniversityEng, htmlAttributes: new { @class = "control-label col-md-2" })
+                </div>
+                <div class="col-md-8">
+                    @Html.TextAreaFor(model => model.AboutUniversityEng, new { @class = "form-control", rows = "3" })
+                    @Html.ValidationMessageFor(model => model.AboutUniversityEng, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(model => model.AboutUniversityArb, htmlAttributes: new { @class = "control-label col-md-2" })
+                </div>
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.AboutUniversityArb, new { @class = "form-control", rows = "3" })
+                    @Html.ValidationMessageFor(model => model.AboutUniversityArb, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-8 col-md-12">
+               
+            </div>
+        </div>
+    </div>
+</div>*@

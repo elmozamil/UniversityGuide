@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UniGuideModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdmissionType">
+    <Key>
+      <PropertyRef Name="AdmisionID" />
+    </Key>
+    <Property Name="AdmisionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdmisionEng" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdmisionArb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Faculties" Relationship="Self.FK_Faculties_AdmissionType" FromRole="AdmissionType" ToRole="Faculties" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CatID" />
+    </Key>
+    <Property Name="CatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryEng" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CategoryArb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Diciplines" Relationship="Self.FK_Diciplines_Categories" FromRole="Categories" ToRole="Diciplines" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityEng" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CityArb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_Cities_Countries" FromRole="Cities" ToRole="Countries" />
+    <NavigationProperty Name="Faculties" Relationship="Self.FK_Faculties_Cities" FromRole="Cities" ToRole="Faculties" />
+    <NavigationProperty Name="Universities" Relationship="Self.FK_Table_1_Cities" FromRole="Cities" ToRole="Universities" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryEng" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CountryArb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Cities" Relationship="Self.FK_Cities_Countries" FromRole="Countries" ToRole="Cities" />
+  </EntityType>
+  <EntityType Name="Degree">
+    <Key>
+      <PropertyRef Name="DegreeID" />
+    </Key>
+    <Property Name="DegreeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DegreeEng" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DegreeArb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Programs" Relationship="UniGuideModel.FK_Programs_Degrees" FromRole="Degree" ToRole="Program" />
+  </EntityType>
+  <EntityType Name="Dicipline">
+    <Key>
+      <PropertyRef Name="DiciID" />
+    </Key>
+    <Property Name="DiciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DiciplineEng" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DiciplineArb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CatID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Diciplines_Categories" FromRole="Diciplines" ToRole="Categories" />
+    <NavigationProperty Name="Programs" Relationship="Self.ProgramDicipline" FromRole="Diciplines" ToRole="Programs" />
+  </EntityType>
+  <EntityType Name="Faculty">
+    <Key>
+      <PropertyRef Name="FacultyID" />
+    </Key>
+    <Property Name="FacultyID" Type="Int64" Nullable="false" />
+    <Property Name="FacultyEng" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FacultyArb" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AboutEng" Type="String" MaxLength="700" FixedLength="false" Unicode="false" />
+    <Property Name="AboutArb" Type="String" MaxLength="700" FixedLength="false" Unicode="true" />
+    <Property Name="logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="City" Type="Int32" Nullable="false" />
+    <Property Name="Location" Type="Geography" />
+    <Property Name="CreateDate" Type="DateTime" Precision="0" />
+    <Property Name="FacultyURL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdmissionType" Type="Int32" Nullable="false" />
+    <Property Name="Hybird" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AdmissionType1" Relationship="Self.FK_Faculties_AdmissionType" FromRole="Faculties" ToRole="AdmissionType" />
+    <NavigationProperty Name="City1" Relationship="Self.FK_Faculties_Cities" FromRole="Faculties" ToRole="Cities" />
+    <NavigationProperty Name="Hybird1" Relationship="Self.FK_Faculties_Hybird" FromRole="Faculties" ToRole="Hybird" />
+    <NavigationProperty Name="FacultyComments" Relationship="Self.FK_FacultyComments_Faculties" FromRole="Faculties" ToRole="FacultyComments" />
+    <Property Name="UniversityID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="University" Relationship="UniGuideModel.FK_Faculties_Universities" FromRole="Faculty" ToRole="University" />
+    <NavigationProperty Name="Programs" Relationship="UniGuideModel.FK_Programs_Faculties" FromRole="Faculty" ToRole="Program" />
+  </EntityType>
+  <EntityType Name="FacultyComment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FacultyID" Type="Int64" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Faculty" Relationship="Self.FK_FacultyComments_Faculties" FromRole="FacultyComments" ToRole="Faculties" />
+  </EntityType>
+  <EntityType Name="Hybird">
+    <Key>
+      <PropertyRef Name="HybirdID" />
+    </Key>
+    <Property Name="HybirdID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HybirdEng" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HybirdArb" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Faculties" Relationship="Self.FK_Faculties_Hybird" FromRole="Hybird" ToRole="Faculties" />
+  </EntityType>
+  <EntityType Name="ProgramComment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProgramID" Type="Int64" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Program" Relationship="Self.FK_ProgramComments_Programs" FromRole="ProgramComments" ToRole="Programs" />
+  </EntityType>
+  <EntityType Name="Program">
+    <Key>
+      <PropertyRef Name="ProgramID" />
+    </Key>
+    <Property Name="ProgramID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProgramEng" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProgramArb" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AboutEng" Type="String" MaxLength="700" FixedLength="false" Unicode="false" />
+    <Property Name="AboutArb" Type="String" MaxLength="700" FixedLength="false" Unicode="true" />
+    <Property Name="Period" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Semesters" Type="Int32" Nullable="false" />
+    <Property Name="ProgramURL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ProgramComments" Relationship="Self.FK_ProgramComments_Programs" FromRole="Programs" ToRole="ProgramComments" />
+    <NavigationProperty Name="Diciplines" Relationship="Self.ProgramDicipline" FromRole="Programs" ToRole="Diciplines" />
+    <Property Name="FacultyID" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Faculty" Relationship="UniGuideModel.FK_Programs_Faculties" FromRole="Program" ToRole="Faculty" />
+    <Property Name="DegreeID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Degree" Relationship="UniGuideModel.FK_Programs_Degrees" FromRole="Program" ToRole="Degree" />
+  </EntityType>
+  <EntityType Name="University">
+    <Key>
+      <PropertyRef Name="UniveristyID" />
+    </Key>
+    <Property Name="UniveristyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UniversityEng" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UniversityArb" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AboutUniversityEng" Type="String" MaxLength="700" FixedLength="false" Unicode="false" />
+    <Property Name="AboutUniversityArb" Type="String" MaxLength="700" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="Int32" Nullable="false" />
+    <Property Name="Location" Type="Geography" />
+    <Property Name="logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UniversityURL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GlobalRank" Type="Int32" />
+    <Property Name="ContinetRank" Type="Int32" />
+    <Property Name="RegionalRank" Type="Int32" />
+    <Property Name="LocalRank" Type="Int32" />
+    <NavigationProperty Name="City1" Relationship="Self.FK_Table_1_Cities" FromRole="Universities" ToRole="Cities" />
+    <NavigationProperty Name="UniversityComments" Relationship="Self.FK_UniversityComments_Universities" FromRole="Universities" ToRole="UniversityComments" />
+    <NavigationProperty Name="Faculties" Relationship="UniGuideModel.FK_Faculties_Universities" FromRole="University" ToRole="Faculty" />
+  </EntityType>
+  <EntityType Name="UniversityComment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UniveristyID" Type="Int32" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="userID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="University" Relationship="Self.FK_UniversityComments_Universities" FromRole="UniversityComments" ToRole="Universities" />
+  </EntityType>
+  <Association Name="FK_Faculties_AdmissionType">
+    <End Role="AdmissionType" Type="Self.AdmissionType" Multiplicity="1" />
+    <End Role="Faculties" Type="Self.Faculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdmissionType">
+        <PropertyRef Name="AdmisionID" />
+      </Principal>
+      <Dependent Role="Faculties">
+        <PropertyRef Name="AdmissionType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diciplines_Categories">
+    <End Role="Categories" Type="Self.Category" Multiplicity="1" />
+    <End Role="Diciplines" Type="Self.Dicipline" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CatID" />
+      </Principal>
+      <Dependent Role="Diciplines">
+        <PropertyRef Name="CatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cities_Countries">
+    <End Role="Countries" Type="Self.Country" Multiplicity="1" />
+    <End Role="Cities" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="Cities">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faculties_Cities">
+    <End Role="Cities" Type="Self.City" Multiplicity="1" />
+    <End Role="Faculties" Type="Self.Faculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="Faculties">
+        <PropertyRef Name="City" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_1_Cities">
+    <End Role="Cities" Type="Self.City" Multiplicity="1" />
+    <End Role="Universities" Type="Self.University" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="Universities">
+        <PropertyRef Name="City" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faculties_Hybird">
+    <End Role="Hybird" Type="Self.Hybird" Multiplicity="1" />
+    <End Role="Faculties" Type="Self.Faculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hybird">
+        <PropertyRef Name="HybirdID" />
+      </Principal>
+      <Dependent Role="Faculties">
+        <PropertyRef Name="Hybird" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacultyComments_Faculties">
+    <End Role="Faculties" Type="Self.Faculty" Multiplicity="1" />
+    <End Role="FacultyComments" Type="Self.FacultyComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculties">
+        <PropertyRef Name="FacultyID" />
+      </Principal>
+      <Dependent Role="FacultyComments">
+        <PropertyRef Name="FacultyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProgramComments_Programs">
+    <End Role="Programs" Type="Self.Program" Multiplicity="1" />
+    <End Role="ProgramComments" Type="Self.ProgramComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Programs">
+        <PropertyRef Name="ProgramID" />
+      </Principal>
+      <Dependent Role="ProgramComments">
+        <PropertyRef Name="ProgramID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UniversityComments_Universities">
+    <End Role="Universities" Type="Self.University" Multiplicity="1" />
+    <End Role="UniversityComments" Type="Self.UniversityComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Universities">
+        <PropertyRef Name="UniveristyID" />
+      </Principal>
+      <Dependent Role="UniversityComments">
+        <PropertyRef Name="UniveristyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProgramDicipline">
+    <End Role="Diciplines" Type="Self.Dicipline" Multiplicity="*" />
+    <End Role="Programs" Type="Self.Program" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="UniGuideEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdmissionTypes" EntityType="Self.AdmissionType" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Cities" EntityType="Self.City" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="Degrees" EntityType="Self.Degree" />
+    <EntitySet Name="Diciplines" EntityType="Self.Dicipline" />
+    <EntitySet Name="Faculties" EntityType="Self.Faculty" />
+    <EntitySet Name="FacultyComments" EntityType="Self.FacultyComment" />
+    <EntitySet Name="Hybirds" EntityType="Self.Hybird" />
+    <EntitySet Name="ProgramComments" EntityType="Self.ProgramComment" />
+    <EntitySet Name="Programs" EntityType="Self.Program" />
+    <EntitySet Name="Universities" EntityType="Self.University" />
+    <EntitySet Name="UniversityComments" EntityType="Self.UniversityComment" />
+    <AssociationSet Name="FK_Faculties_AdmissionType" Association="Self.FK_Faculties_AdmissionType">
+      <End Role="AdmissionType" EntitySet="AdmissionTypes" />
+      <End Role="Faculties" EntitySet="Faculties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diciplines_Categories" Association="Self.FK_Diciplines_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Diciplines" EntitySet="Diciplines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cities_Countries" Association="Self.FK_Cities_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Cities" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faculties_Cities" Association="Self.FK_Faculties_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Faculties" EntitySet="Faculties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_1_Cities" Association="Self.FK_Table_1_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Universities" EntitySet="Universities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faculties_Hybird" Association="Self.FK_Faculties_Hybird">
+      <End Role="Hybird" EntitySet="Hybirds" />
+      <End Role="Faculties" EntitySet="Faculties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacultyComments_Faculties" Association="Self.FK_FacultyComments_Faculties">
+      <End Role="Faculties" EntitySet="Faculties" />
+      <End Role="FacultyComments" EntitySet="FacultyComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProgramComments_Programs" Association="Self.FK_ProgramComments_Programs">
+      <End Role="Programs" EntitySet="Programs" />
+      <End Role="ProgramComments" EntitySet="ProgramComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UniversityComments_Universities" Association="Self.FK_UniversityComments_Universities">
+      <End Role="Universities" EntitySet="Universities" />
+      <End Role="UniversityComments" EntitySet="UniversityComments" />
+    </AssociationSet>
+    <AssociationSet Name="ProgramDicipline" Association="Self.ProgramDicipline">
+      <End Role="Diciplines" EntitySet="Diciplines" />
+      <End Role="Programs" EntitySet="Programs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faculties_Universities" Association="UniGuideModel.FK_Faculties_Universities">
+      <End Role="University" EntitySet="Universities" />
+      <End Role="Faculty" EntitySet="Faculties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Programs_Faculties" Association="UniGuideModel.FK_Programs_Faculties">
+      <End Role="Faculty" EntitySet="Faculties" />
+      <End Role="Program" EntitySet="Programs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Programs_Degrees" Association="UniGuideModel.FK_Programs_Degrees">
+      <End Role="Degree" EntitySet="Degrees" />
+      <End Role="Program" EntitySet="Programs" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_Faculties_Universities">
+    <End Type="UniGuideModel.University" Role="University" Multiplicity="1" />
+    <End Type="UniGuideModel.Faculty" Role="Faculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="University">
+        <PropertyRef Name="UniveristyID" />
+      </Principal>
+      <Dependent Role="Faculty">
+        <PropertyRef Name="UniversityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Programs_Faculties">
+    <End Type="UniGuideModel.Faculty" Role="Faculty" Multiplicity="1" />
+    <End Type="UniGuideModel.Program" Role="Program" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculty">
+        <PropertyRef Name="FacultyID" />
+      </Principal>
+      <Dependent Role="Program">
+        <PropertyRef Name="FacultyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Programs_Degrees">
+    <End Type="UniGuideModel.Degree" Role="Degree" Multiplicity="1" />
+    <End Type="UniGuideModel.Program" Role="Program" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Degree">
+        <PropertyRef Name="DegreeID" />
+      </Principal>
+      <Dependent Role="Program">
+        <PropertyRef Name="DegreeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

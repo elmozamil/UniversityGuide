@@ -1,0 +1,34 @@
+﻿@model IEnumerable<UniGuide.Models.Program>
+
+@{
+    ViewBag.Title = "SearchProgramsByCat";
+}
+
+@*<h2>SearchProgramsByCat</h2>*@
+
+<ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Search My Future</a></li>
+    <li class="active">By Category</li>
+</ol>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="row">
+    <div class="col-md-12">
+        @foreach (var item in Model)
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading"><span><a href=@item.ProgramURL>@item.ProgramEng</a></span>
+                <span style="float: right;">@item.Degree.DegreeEng</span>
+                </div>
+                <div class="panel-body">
+                    <p>@item.AboutEng</p>
+                    <p>@item.Degree.DegreeEng</p>
+                </div>
+                <div class="panel-footer">@item.Faculty.City1.CityEng</div>
+            </div>
+        }
+    </div>
+</div>

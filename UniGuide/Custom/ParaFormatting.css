@@ -1,0 +1,20 @@
+﻿.comment {
+    width: 80%;
+    position: relative;
+    padding-left: 4px;
+    margin-left: 8px;
+    border-left: 1px solid #D7D1D1;
+    /*display: inline-block;*/
+}
+
+a.morelink {
+    display: inline-block;
+    position: absolute;
+    text-decoration: none;
+    outline: none;
+}
+
+.morecontent span {
+    position: absolute;
+    display: none;
+}

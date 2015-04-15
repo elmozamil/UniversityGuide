@@ -1,0 +1,72 @@
+﻿@model IEnumerable<UniGuide.Models.University>
+
+@foreach (var item in Model)
+{
+    <div class="panel panel-success" style="border: 1px solid #CC99CC;">
+        <div class="panel-heading">
+            <b>
+                @{
+    string university = @item.UniversityEng.ToString();
+                }
+                @Html.ActionLink(university, "Details", new { id = item.UniveristyID })
+            </b>
+            <div class="label label-success col-md-2 col-xs-12" style="float: right;">
+                <i class="glyphicon glyphicon-globe"></i> @item.City1.Country.CountryEng - @item.City1.CityEng
+                <span class="badge">@item.City1.Universities.Count</span>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="media">
+
+                @if (item.logo != null)
+                {
+                    <div class="media-left hidden-xs">
+                        <a href="#">
+                            <img src="data:image/jpg;base64,@(Convert.ToBase64String(item.logo))" alt="@item.UniversityEng" class="img-rounded" style="width: 120px; height:120px;" />
+                        </a>
+                    </div>
+                }
+                else
+                {
+                    <div class="media-left hidden-xs">
+                        <a href="#">
+                            <img src="~/Images/NA.png" alt="@item.UniversityEng" class="img-rounded" style="width: 120px; height:120px;" />
+                        </a>
+                    </div>
+                }
+                <div class="media-body">
+                    @*<code style="float: right;"><a href="#">Map</a></code>*@
+                    <blockquote>
+                        <p class="show-read-more">
+                            @item.AboutUniversityEng
+                        </p>
+                    </blockquote>
+                </div>
+                <div style="margin: 5px;">
+                    @{
+    string Nofaculties = item.Faculties.Count().ToString();
+    @*<a href="#">Inbox <span class="badge">Nofaculties</span></a>*@
+                    }
+                    @Html.ActionLink("Faculties (" + Nofaculties + ")", "List")
+
+                </div>
+
+            </div>
+        </div>
+        <div class="panel-footer">
+            <code class="rankingData">
+                Global: @if (item.GlobalRank > 0)
+                { @item.GlobalRank }
+                else { }
+            </code>
+            <code class="rankingData">Continet: @item.ContinetRank</code>
+            <code class="rankingData">Regional: @item.RegionalRank</code>
+            <code class="rankingData">Local: @item.LocalRank</code>
+        </div>
+    </div>
+}
+
+@if (ViewData["moreUrl"] != null)
+{
+    <a href=@ViewData["moreUrl"] id="moreLink" class="itemlink">More</a>
+}

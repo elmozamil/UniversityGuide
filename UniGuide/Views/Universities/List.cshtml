@@ -1,0 +1,17 @@
+﻿@model  IEnumerable<UniGuide.Models.University>
+
+@{
+    ViewBag.Title = "List";
+}
+@*<div class="page-header">
+    Hello
+</div>*@
+<br/>
+<div class="panel panel-success">
+    <div class="panel-heading">Search Result</div>
+    <div class="panel-body" id="resultLstID">
+        <br />
+        @Html.Partial("PartialUniList")
+    </div>
+    <div class="panel-footer"><code id="resultCount"></code></div>
+</div>

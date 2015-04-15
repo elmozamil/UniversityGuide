@@ -1,0 +1,51 @@
+﻿@*@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}*@
+
+
+@*@@helper selected(string c, string culture)
+{
+    if (c == culture)
+    {
+        @:checked="checked"
+    }
+}
+
+@using (Html.BeginForm("SetCulture", "Home"))
+{
+    <fieldset>
+        <legend>@Resources.Resources.ChooseYourLanguage</legend>
+        <select id="langSelect">
+            <option value="@selected("en-us", culture) ">English</option>
+       
+            <option value="@selected("es", culture) ">Español</option>
+        
+            <option value="@selected("ar", culture) ">العربية</option>
+        </select>
+    </fieldset>
+}*@
+
+
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li class="dropdown">
+            <ul>
+                <li>
+                    <a href="@Url.RouteUrl(new RouteValueDictionary(ViewContext.RouteData.Values.ToDictionary(r => r.Key, r => r.Key == "culture" ? "en-us" :  r.Value)))">
+                        <br>English
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.RouteUrl(new RouteValueDictionary(ViewContext.RouteData.Values.ToDictionary(r => r.Key, r => r.Key == "culture" ? "ar" :  r.Value)))">
+                        <br>العربية
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.RouteUrl(new RouteValueDictionary(ViewContext.RouteData.Values.ToDictionary(r => r.Key, r => r.Key == "culture" ? "es" :  r.Value)))">
+                        <br>Spanish
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

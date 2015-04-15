@@ -1,0 +1,99 @@
+﻿@model IEnumerable<UniGuide.Models.Faculty>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FacultyEng)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FacultyArb)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AboutEng)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AboutArb)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.logo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FacultyURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdmissionType1.AdmisionEng)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City1.CityEng)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hybird1.HybirdEng)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.University.UniversityEng)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacultyEng)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacultyArb)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AboutEng)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AboutArb)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.logo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacultyURL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdmissionType1.AdmisionEng)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City1.CityEng)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hybird1.HybirdEng)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.University.UniversityEng)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FacultyID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FacultyID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FacultyID })
+        </td>
+    </tr>
+}
+
+</table>

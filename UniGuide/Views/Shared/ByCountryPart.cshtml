@@ -1,0 +1,33 @@
+﻿@model IEnumerable<UniGuide.Models.City>
+
+<p>
+    @Html.ActionLink("New City", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CityEng)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CityArb)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CityEng)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CityArb)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CityID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CityID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CityID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<UniGuide.Models.Degree>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DegreeEng)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DegreeArb)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DegreeEng)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DegreeArb)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DegreeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DegreeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DegreeID })
+        </td>
+    </tr>
+}
+
+</table>

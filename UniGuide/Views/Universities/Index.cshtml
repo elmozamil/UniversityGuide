@@ -1,0 +1,71 @@
+﻿@model IEnumerable<UniGuide.Models.University>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row">
+    <p>
+        <h3>Universities</h3>
+        @*<hr />*@
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <div class="col-md-10">
+        <div class="table-responsive">
+        <table class="table table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.UniversityEng)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UniversityArb)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Location)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GlobalRank)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City1.CityEng)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UniversityURL)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UniversityEng)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UniversityArb)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GlobalRank)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City1.CityEng)
+                    </td>
+                    <td>
+                        <a href=@item.UniversityURL>URL</a>
+                        @*@Html.DisplayFor(modelItem => item.UniversityURL)*@
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.UniveristyID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.UniveristyID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.UniveristyID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+    </div>
+</div>

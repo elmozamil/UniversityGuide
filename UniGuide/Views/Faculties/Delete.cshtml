@@ -1,0 +1,120 @@
+﻿@model UniGuide.Models.Faculty
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Faculty</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FacultyEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacultyEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacultyArb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacultyArb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AboutEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AboutEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AboutArb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AboutArb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.logo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.logo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacultyURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacultyURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdmissionType1.AdmisionEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdmissionType1.AdmisionEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City1.CityEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City1.CityEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hybird1.HybirdEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hybird1.HybirdEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.University.UniversityEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.University.UniversityEng)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

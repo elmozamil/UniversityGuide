@@ -1,0 +1,10 @@
+C:\Users\elmozamil.elamir\Documents\Visual Studio 2013\Projects\UniGuide\Resources\bin\Debug\Resources.dll
+C:\Users\elmozamil.elamir\Documents\Visual Studio 2013\Projects\UniGuide\Resources\bin\Debug\Resources.pdb
+C:\Users\elmozamil.elamir\Documents\Visual Studio 2013\Projects\UniGuide\Resources\bin\Debug\ar\Resources.resources.dll
+C:\Users\elmozamil.elamir\Documents\Visual Studio 2013\Projects\UniGuide\Resources\obj\Debug\Resources.csprojResolveAssemblyReference.cache
+C:\Users\elmozamil.elamir\Documents\Visual Studio 2013\Projects\UniGuide\Resources\obj\Debug\Resources.Resources.resources
+C:\Users\elmozamil.elamir\Documents\Visual Studio 2013\Projects\UniGuide\Resources\obj\Debug\Resources.Resources.ar.resources
+C:\Users\elmozamil.elamir\Documents\Visual Studio 2013\Projects\UniGuide\Resources\obj\Debug\Resources.csproj.GenerateResource.Cache
+C:\Users\elmozamil.elamir\Documents\Visual Studio 2013\Projects\UniGuide\Resources\obj\Debug\ar\Resources.resources.dll
+C:\Users\elmozamil.elamir\Documents\Visual Studio 2013\Projects\UniGuide\Resources\obj\Debug\Resources.dll
+C:\Users\elmozamil.elamir\Documents\Visual Studio 2013\Projects\UniGuide\Resources\obj\Debug\Resources.pdb
